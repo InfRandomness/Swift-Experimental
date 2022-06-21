@@ -18,3 +18,10 @@ if !fileManager.fileExists(atPath: args.input) {
 } else if !fileManager.fileExists(atPath: args.output) {
   print("The provided output path does not exist")
 }
+
+do {
+  try fileManager.copyItem(atPath: args.input, toPath: args.output)
+  print("Copying the requested file")
+} catch {
+  print("An unexpected error occurred while copying the request file over")
+}
